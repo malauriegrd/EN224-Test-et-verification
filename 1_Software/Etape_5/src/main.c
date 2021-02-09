@@ -6,6 +6,14 @@
 #define MAX 65535
 
 int PGCD2(int a, int b){
+	int val_A_init = a;
+	int val_B_init = a;
+
+	assert(val_A_init>=0);
+	assert(val_A_init<=65535);
+	assert(val_B_init>=0);
+	assert(val_B_init<=65535);
+
     int r,x,y;
 	if(a ==0)
 		return b;
@@ -28,11 +36,28 @@ int PGCD2(int a, int b){
         x=r;
         r=y%x;          
     }
-    return x;
+	
+	assert(x>=0);
+	assert(x<=val_A_init);
+	assert(x<=val_B_init);
+	int restA = val_A_init%x;
+	int restB = val_B_init %x;
+	assert(restA==0);
+	assert(restB==0);
+    
+	return x;
 }
 
 int PGCD(int A, int B)
 {
+	int val_A_init = A;
+	int val_B_init = B;
+
+	assert(val_A_init>=0);
+	assert(val_A_init<=65535);
+	assert(val_B_init>=0);
+	assert(val_B_init<=65535);
+	
 	if(A ==0){
 		return B;
 	}
@@ -49,7 +74,16 @@ int PGCD(int A, int B)
 		else
 			B = B - A;
 	}
+	assert(A>=0);
+	assert(A<=val_A_init);
+	assert(B<=val_B_init);
+	int restA = val_A_init%A;
+	int restB = val_B_init %B;
+	assert(restA==0);
+	assert(restB==0);
+
 	return A;
+
 }
 
 int RandA ( int A){
@@ -72,14 +106,10 @@ int main (int argc, char * argv []){
 	int pgcd, pgcd2;
 	int cmpt_err = 0;
 	for(int i =0; i<65536; i++){
-		A = RandA(A);
-		assert(A>=0);
-		assert(A<=65535);
-		
-		B = RandB(B);
-		assert(B>=0);
-		assert(B<=65535);
 
+		A = RandA(A);
+		B = RandB(B);
+		
 		pgcd = PGCD(A,B);
 		pgcd2 = PGCD2(A,B);
 		
