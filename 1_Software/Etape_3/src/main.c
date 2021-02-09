@@ -3,7 +3,7 @@
 #include "math.h"
 
 #define MAX 65535
-#define MIN 1
+#define MIN 0
 
 int PGCD2(int a, int b){
       int r,x,y;
