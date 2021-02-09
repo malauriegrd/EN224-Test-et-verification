@@ -2,6 +2,8 @@
 #include "stdlib.h"
 #include "math.h"
 #include <assert.h>
+#define CATCH_CONFIG_MAIN
+#include "catch.hpp"
 
 #include "pgcd.h"
 
@@ -16,37 +18,64 @@ int RandB (int B){
 	B = rand() % (MAX + 1 );
 	return B;
 }
+TEST_CASE("PGCD cas general","[PGCD]"){
+	SECTION ("A>B"){
+		REQUIRE(PGCD(65535,1)==1);
+		REQUIRE(PGCD(10235,230)==115);
+		REQUIRE(PGCD(36,4)==4);
+		REQUIRE(PGCD(3425, 210)==5);
+		REQUIRE(PGCD(4950, 340)==10);
+	}
+	SECTION("A<B"){
+		REQUIRE(PGCD(1,65535)==1);
+		REQUIRE(PGCD(303, 693)==3);
+		REQUIRE(PGCD(1035, 1931)==1);
+		REQUIRE(PGCD(2032, 3454)==2);
+	}
+	SECTION("A=B"){
+		REQUIRE(PGCD(65535,65535)==65535);
+    	REQUIRE(PGCD(4022,4022)==4022);
+    	REQUIRE(PGCD(5,5)==5);
+	}
+	SECTION ("A>B"){
+		REQUIRE(PGCD2(65535,1)==1);
+		REQUIRE(PGCD2(10235,230)==115);
+		REQUIRE(PGCD2(36,4)==4);
+		REQUIRE(PGCD2(3425, 210)==5);
+		REQUIRE(PGCD2(4950, 340)==10);
+	}
 
+	SECTION ("A<B"){
+		REQUIRE(PGCD2(1,65535)==1);
+		REQUIRE(PGCD2(303, 693)==3);
+		REQUIRE(PGCD2(1035, 1931)==1);
+		REQUIRE(PGCD2(2032, 3454)==2);
+	}
 
+	SECTION ("A=B"){
+		REQUIRE(PGCD2(65535,65535)==65535);
+		REQUIRE(PGCD2(4022,4022)==4022);
+		REQUIRE(PGCD2(5,5)==5);
+	}
+}
+
+TEST_CASE("PGCD cas particulier","[PGCD]"){
+	SECTION ("A>B"){
+		REQUIRE(PGCD(10032,0)==10032);
+		REQUIRE(PGCD(0,2010) == 2010);
+		REQUIRE(PGCD(0,0)==0);
+	}
+	SECTION ("A<B"){
+    	REQUIRE(PGCD2(10032,0)==10032);
+		REQUIRE(PGCD2(0,2010) == 2010);
+	}
+	SECTION ("A=B"){
+		REQUIRE(PGCD2(0,0)==0);
+	}
+}
+//#define _usefull_
+#ifdef _usefull_
 int main (int argc, char * argv []){
-	//test unitaire    
-    assert(PGCD(0,0)==0);
-    assert(PGCD(0,2010) == 2010);
-    assert(PGCD(10032,0)==10032);
-    assert(PGCD(1,65535)==1);
-    assert(PGCD(65535,1)==1);
-    assert(PGCD(65535,65535)==65535);
-    assert(PGCD(10235,230)==115);
-	assert(PGCD(303, 693)==3);
-	assert(PGCD(36,4)==4);
-	assert(PGCD(1035, 1931)==1);
-	assert(PGCD(4950, 340)==10);
-	assert(PGCD(3425, 210)==5);
-	assert(PGCD(2032, 3454)==2);
-    
-    assert(PGCD2(0,0)==0);
-    assert(PGCD2(0,2010) == 2010);
-    assert(PGCD2(10032,0)==10032);
-    assert(PGCD2(1,65535)==1);
-    assert(PGCD2(65535,1)==1);
-    assert(PGCD2(65535,65535)==65535);
-    assert(PGCD2(10235,230)==115);
-	assert(PGCD2(303, 693)==3);
-	assert(PGCD2(36,4)==4);
-	assert(PGCD2(1035, 1931)==1);
-	assert(PGCD2(4950, 340)==10);
-	assert(PGCD2(3425, 210)==5);
-	assert(PGCD2(2032, 3454)==2);
     
 	printf("(II) Starting PGCD program\n");
 	//Test semi automatisé
@@ -71,3 +100,4 @@ int main (int argc, char * argv []){
 	printf("(II) End of PGCD program\n");
   return 0;
 }
+#endif

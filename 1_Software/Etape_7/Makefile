@@ -1,7 +1,7 @@
 CC=g++
 LDFLAGS=-lm
 EXEC=main
-SRC=./src/main.c ./src/pgcd.c
+SRC=./src/main.cpp ./src/pgcd.cpp
 
 OBJ= $(SRC:.c=.o)
 
