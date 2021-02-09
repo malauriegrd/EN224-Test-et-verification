@@ -45,13 +45,12 @@ int main (int argc, char * argv []){
 		fscanf(fichB,"%d",&B);
 
 		pgcd = PGCD(A,B);
-		if(rand()%128==0)
+		/*if(rand()%128==0)
 		{
 			pgcd+=1;
-		}
+		}*/
 		fprintf(fichC,"%d\n",pgcd);
 	}
-	printf("couple pgcd OK = %d, couple pgcd KO = %d\n", cmpt_OK, cmpt_err);
 	printf("(II) End of PGCD program\n");
   return 0;
 }
