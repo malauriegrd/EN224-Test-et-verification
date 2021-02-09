@@ -7,6 +7,16 @@
 
 int PGCD(int A, int B)
 {
+	if(A ==0){
+		return B;
+	}
+	if(B==0){
+		return A;
+	}
+	if(B==0 && A ==0 ){
+		A = 0;
+	}
+
 	while(A != B){
 		if(A > B)
 			A = A - B;
@@ -17,12 +27,12 @@ int PGCD(int A, int B)
 }
 
 int RandA ( int A){
-	A = MIN + rand() % (MAX + 1 - MIN);
+	A = rand() % (MAX + 1);
 	return A;
 }
 
 int RandB (int B){
-	B = MIN + rand() % (MAX + 1 - MIN);
+	B = rand() % (MAX + 1 );
 	return B;
 }
 
@@ -33,7 +43,7 @@ int main (int argc, char * argv []){
 	int A;
 	int B;
 	int pgcd;
-	while(cmpt != 20){
+	for(int i =0; i<200; i++){
 		A = RandA(A);
 		B = RandB(B);
 		pgcd = PGCD(A,B);

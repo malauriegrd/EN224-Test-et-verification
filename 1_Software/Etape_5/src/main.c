@@ -1,35 +1,34 @@
 #include "stdio.h"
 #include "stdlib.h"
 #include "math.h"
+#include <assert.h>
 
 #define MAX 65535
-#define MIN 1
 
 int PGCD2(int a, int b){
     int r,x,y;
-	if(a ==0){
+	if(a ==0)
 		return b;
-	}
-	if(b==0){
+
+	if(b==0)
 		return a;
-	}
-	if(b==0 && a ==0 ){
+	
+	if(b==0 && a ==0 )
 		return 0;
-	}
-      if (a>b){
-          x=b;
-          r=a%b;
-      }
-      else{
-          x=a;
-          r=b%a;
-      }
-      while(r!=0){
-        y=x;
+	
+    if (a>b){
+        x=b;
+        r=a%b;
+    }else{
+    	x=a;
+        r=b%a;
+    }
+    while(r!=0){
+		y=x;
         x=r;
         r=y%x;          
-      }
-      return x;
+    }
+    return x;
 }
 
 int PGCD(int A, int B)
@@ -74,9 +73,16 @@ int main (int argc, char * argv []){
 	int cmpt_err = 0;
 	for(int i =0; i<65536; i++){
 		A = RandA(A);
+		assert(A>=0);
+		assert(A<=65535);
+		
 		B = RandB(B);
+		assert(B>=0);
+		assert(B<=65535);
+
 		pgcd = PGCD(A,B);
 		pgcd2 = PGCD2(A,B);
+		
 		if(pgcd!=pgcd2){
 			printf("A = %d, B= %d ,PGCD1 = %d,  PGCD2 = %d \n", A,B,pgcd,pgcd2);
 			cmpt_err = cmpt_err +1;
