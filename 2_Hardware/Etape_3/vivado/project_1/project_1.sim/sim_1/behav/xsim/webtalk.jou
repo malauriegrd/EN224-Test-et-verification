@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Thu Feb 11 14:41:24 2021
+# Process ID: 15517
+# Current directory: /net/s/mgeraud001/enseirb/EN224-Test-et-verification-master/2_Hardware/Etape_1/vivado/project_1/project_1.sim/sim_1/behav/xsim
+# Command line: wbtcv -mode batch -source /net/s/mgeraud001/enseirb/EN224-Test-et-verification-master/2_Hardware/Etape_1/vivado/project_1/project_1.sim/sim_1/behav/xsim/xsim.dir/tb_top_level_PGCD_behav/webtalk/xsim_webtalk.tcl -notrace
+# Log file: /net/s/mgeraud001/enseirb/EN224-Test-et-verification-master/2_Hardware/Etape_1/vivado/project_1/project_1.sim/sim_1/behav/xsim/webtalk.log
+# Journal file: /net/s/mgeraud001/enseirb/EN224-Test-et-verification-master/2_Hardware/Etape_1/vivado/project_1/project_1.sim/sim_1/behav/xsim/webtalk.jou
+#-----------------------------------------------------------
+source /net/s/mgeraud001/enseirb/EN224-Test-et-verification-master/2_Hardware/Etape_1/vivado/project_1/project_1.sim/sim_1/behav/xsim/xsim.dir/tb_top_level_PGCD_behav/webtalk/xsim_webtalk.tcl -notrace
